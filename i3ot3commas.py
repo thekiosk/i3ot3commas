@@ -3,10 +3,10 @@ from flask import (
     request,
     json
 )
+import re
 import socket
 from datetime import datetime
 import time
-import re
 import requests
 from collections import defaultdict
 from telegramManager import telegramManager
@@ -16,7 +16,7 @@ class i3ot3commas:
         self.config = self.read_config()
 
     def read_config(self):
-        configFile = 'config.ini'
+        configFile = 'config.ini'        
         oConfig = self.nested_dict(1,list)
         f = open(configFile, "r")
         for x in f:
@@ -89,6 +89,7 @@ def trade_signal():
 
         #set end point for 3commas
         url = robot.config['3commas']
+        telegramBot = robot.config['enableTelegram']
         rfq_details = {}
 
         # assign owner 
@@ -150,8 +151,9 @@ def trade_signal():
                 "message" : message_alert
                 }        
         msgService = json.dumps( data )
-        messageService = telegramManager()
-        messageService.send_alert_message(msgService)  
+        messageService = telegramManager()        
+        if telegramBot.upper() == 'TRUE':
+            messageService.send_alert_message(msgService)  
         
         print(msgBot, flush=True)
         return request.method, 201
