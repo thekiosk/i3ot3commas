@@ -1,5 +1,5 @@
 # i3ot3commas
-web hook from Tradingview to 3commas
+Webhook from Tradingview to 3commas
 
 This project will enable your Tradingview trade signal to connect to multiple 3commas bots.
 
