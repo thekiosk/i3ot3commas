@@ -11,3 +11,5 @@ i3ot3commas will empower you to configure only one pine scripts and use across m
 - KUCOIN
 - BINANCE
 - and you can implement you code for others
+
+More details https://medium.com/@thekiosk/empower-your-tradingview-trade-signal-with-i3ot3commas-d30e4a62dbcb
