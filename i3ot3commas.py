@@ -1,13 +1,7 @@
 from flask import (
     Flask,
-    g,
-    redirect,
-    render_template,
     request,
-    session,
-    url_for,
-    json,
-    send_file
+    json
 )
 import socket
 from datetime import datetime
@@ -15,8 +9,6 @@ import time
 import re
 import requests
 from collections import defaultdict
-from amountManager import amountManager
-from exchangeManager import exchangeManager
 from telegramManager import telegramManager
 
 class i3ot3commas:
