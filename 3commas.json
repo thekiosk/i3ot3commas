@@ -1,0 +1,46 @@
+{
+    "pairs":{ 
+        "KUCOIN":{
+            "BTCUSDT":"USDT_BTC",
+            "ADAUSDT":"USDT_ADA",
+            "ETHUSDT":"USDT_ETH"
+        },
+        "BINANCE":{            
+            "AVAXBUSD":"BUSD_AVAX",
+            "FTMBUSD":"BUSD_FTM",
+            "ROSEBUSD":"BUSD_ROSE"     
+        }
+    },    
+    "owner":{
+        "User1": {   
+            "credentials":
+            {
+                "KUCOIN":
+                {
+                    "BOT_ID":"-enter your bot_id-",
+                    "EMAIL_TOKEN":"-enter your email token from 3commas-"
+                },
+                "BINANCE":{
+                    "BOT_ID":"-enter your bot_id-",
+                    "EMAIL_TOKEN":"-enter your email token from 3commas-"
+                }
+            },
+            "telegram":
+            {
+                "chat_id":"-enter your chat_id from telegram-"
+            },
+            "amount":{
+                "KUCOIN":{                    
+                    "ETHUSDT":"400",
+                    "GALAXUSDT":"400",
+                    "BTCUSDT":"500"
+                },
+                "BINANCE":{
+                    "ETHUSDT":"400",
+                    "GALAXUSDT":"400",
+                    "BTCUSDT":"500"
+                } 
+            }
+        }
+    }
+}
