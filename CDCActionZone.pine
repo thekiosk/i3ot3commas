@@ -1,0 +1,36 @@
+//@version=3
+strategy("Robot_CDC Action Zone Classic", overlay=true)
+
+// CDC ActionZone V2 29 Sep 2016
+// CDC ActionZone is based on a simple 2MA and is most suitable for use with medium volatility market
+// 11 Nov 2016 : Ported to Trading View with minor UI enhancement
+
+src = input(title="Data Array",type=source,defval=close)
+prd1=input(title="Short MA period", type=integer,defval=12)
+prd2=input(title="Long MA period",type=integer,defval=26)
+
+Fast = ema(src,prd1)
+Slow = ema(src,prd2)
+
+//find bullish bearish
+Bullish = Fast>Slow
+Bearish = Fast<Slow
+
+
+Buy = Bullish and Bearish[1]
+Sell = Bearish and Bullish[1]
+
+
+areaColor = barssince(Buy) < barssince(Sell)
+//Plot
+l1=plot(Fast,"Fast", style = line, color= offset(areaColor,2) ? lime : red, linewidth=1)
+l2=plot(Slow,"Slow", style = line, color= offset(areaColor,2) ? lime : red, linewidth=1)
+fill(l1,l2, offset(areaColor,2) ? lime : red,transp = 90)
+
+msgBuy = '{"side":"buy","symbol":"' + ticker + '","exchange":"' + syminfo.prefix + '","tf":"' + period + '"}'
+msgSell = '{"side":"sell","symbol":"' + ticker + '","exchange":"' + syminfo.prefix + '","tf":"' + period + '"}'
+
+
+strategy.entry("Long",strategy.long,when=Buy,comment=msgBuy)
+strategy.entry("Short",strategy.short,when=Sell,comment=msgSell)
+
