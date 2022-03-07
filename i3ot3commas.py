@@ -16,8 +16,7 @@ class i3ot3commas:
         self.config = self.read_config()
 
     def read_config(self):
-        configFile = '../control/config.ini'
-        #configFile = os.path.abspath('../control') + '/config.ini'
+        configFile = 'config.ini'
         oConfig = self.nested_dict(1,list)
         f = open(configFile, "r")
         for x in f:
